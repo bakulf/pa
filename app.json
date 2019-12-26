@@ -13,6 +13,9 @@
       "versionCode": 2,
       "package": "com.bb.pucciapp"
     },
+    "ios": {
+      "bundleIdentifier": "com.bb.pucciapp"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
