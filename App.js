@@ -76,11 +76,11 @@ export default class App extends React.Component {
       message.user = USERS.find(u => u._id === message.user._id);
     });
 
-    const messages = GiftedChat.append(this.state.messages, newMessages);
+    let messages = GiftedChat.append(this.state.messages, newMessages);
+    messages = messages.sort((a,b) => a.createdAt - b.createdAt).reverse();
     this.setState({messages})
 
     await AsyncStorage.setItem("messages", JSON.stringify(messages));
-    const messageStr = await AsyncStorage.getItem('messages');
   }
 
   async onSend(messages = []) {
@@ -251,6 +251,8 @@ export default class App extends React.Component {
     }
 
     await AsyncStorage.setItem("token", token);
+
+    this.setState({messages: []});
 
     const data = await resp.json();
     if (Array.isArray(data.messages) && data.messages.length > 0) {

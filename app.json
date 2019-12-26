@@ -9,8 +9,10 @@
     "platforms": [
       "android"
     ],
-    "android": { "package": "com.bb.pucciapp" },
-    "version": "0.0.1",
+    "android": {
+      "versionCode": 2,
+      "package": "com.bb.pucciapp"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
